@@ -17,7 +17,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password', 60);
+            $table->string('avatar_url', 255); //新增github头像地址为以后github帐号获取做准备
+            $table->boolean('is_admin');
             $table->rememberToken();
             $table->timestamps();
         });
