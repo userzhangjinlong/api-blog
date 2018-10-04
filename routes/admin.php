@@ -7,3 +7,10 @@
  */
 
 Route::get('/', 'IndexController@index');
+Route::post('/signup', 'UsersController@create')->name('signup');
+Route::post('/login', 'UsersController@login');
+Route::get('/logins', 'UsersController@creates');
+
+Route::middleware('auth:admin')->get('/user', function (\Illuminate\Http\Request $request) {
+    echo $request->user();
+});

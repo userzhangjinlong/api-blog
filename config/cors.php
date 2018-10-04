@@ -14,6 +14,7 @@ return [
    
     'supportsCredentials' => false,
     'allowedOrigins' => ['*'],
+//    'allowedOrigins' => ['http：//api.blog.com'],  修改偶尔还是会出现的跨域报错问题
     'allowedOriginsPatterns' => [],
     'allowedHeaders' => ['*'],
     'allowedMethods' => ['*'],
