@@ -12,6 +12,8 @@ Route::post('/login', 'UsersController@login');
 Route::get('/logins', 'UsersController@creates');
 Route::post('/categoryAdd', 'CategoriesController@create');
 Route::get('/categoryList', 'CategoriesController@index');
+Route::get('/articleList', 'ArticlesController@index');
+Route::post('/articleAdd', 'ArticlesController@create');
 
 Route::middleware('auth:admin')->get('/user', function (\Illuminate\Http\Request $request) {
     echo $request->user();
