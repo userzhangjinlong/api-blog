@@ -9,11 +9,49 @@ use App\Http\Controllers\Controller;
 class ArticlesController extends Controller
 {
 
-    public function index(Article $article){
+    /**
+     * 文章列表
+     *
+     * @param Article $article
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Article $article, Request $request){
+        // 关键字过滤
+        if($keyword = $request->keyword ?? ''){
+            $article = $article->where('title', 'like', "%{$keyword}%");
+        }
 
+
+
+        if($request->created_at){
+            if($request->created_at == 'desc'){
+                $article = $article->orderBy('created_at', 'desc');
+            }else{
+                $article = $article->orderBy('created_at', 'asc');
+            }
+        }
+        $articles = $article->paginate(20);
+
+
+        // 修正页码
+        /*if( $articles->count() < 1 && $articles->lastPage() > 1 ){
+            return redirect($articles->url($articles->lastPage()));
+        }*/
+
+        $data['code'] = 200;
+        $data['msg']  = 'ok';
+        $data['list'] = $articles;
+        return response()->json($data);
     }
 
 
+    /**
+     * 新增文章
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function create(Request $request){
         $this->validate($request, [
             'title'       =>      'required|max:20',

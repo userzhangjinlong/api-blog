@@ -16,7 +16,7 @@ Route::post('/categoryListSx', 'CategoriesController@lists');
 Route::post('/categorySave', 'CategoriesController@update');
 Route::post('/categoryDel', 'CategoriesController@destroy');
 Route::post('/categoryDelAll', 'CategoriesController@destroyAll');
-Route::get('/articleList', 'ArticlesController@index');
+Route::post('/articleList', 'ArticlesController@index');
 Route::post('/articleAdd', 'ArticlesController@create');
 Route::post('/articleDel', 'ArticlesController@destroy');
 
