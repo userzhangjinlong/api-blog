@@ -20,6 +20,8 @@ Route::post('/articleList', 'ArticlesController@index');
 Route::post('/articleAdd', 'ArticlesController@create');
 Route::post('/articleDel', 'ArticlesController@destroy');
 Route::post('/articleDelAll', 'ArticlesController@destroyAll');
+Route::get('/article/{article}', 'ArticlesController@show')->name('article.show');
+//Route::resource('article','ArticleController');
 
 Route::middleware('auth:admin')->get('/user', function (\Illuminate\Http\Request $request) {
     echo $request->user();

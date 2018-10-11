@@ -82,6 +82,23 @@ class ArticlesController extends Controller
         return response()->json($data);
     }
 
+
+    public function show(Article $article){
+        /*var_dump($request);die;
+        $articles = Article::find($request->id);
+        if($articles){
+            $data['code'] = 200;
+            $data['msg']  = 'ok';
+            $data['info'] = [];
+        }else{
+            $data['code'] = '400';
+            $data['msg']  = 'fail';
+            $data['info'] = [];
+        }*/
+        return response()->json('article');
+    }
+
+
     /**
      * 删除文章
      *
