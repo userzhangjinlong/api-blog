@@ -28,4 +28,13 @@ class Category extends Model
     protected $hidden = [
         'pid'
     ];
+
+    /**
+     * 关联文章一堆多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function hasManyArticles(){
+        return $this->hasMany(Article::class, 'cat_id', 'id');
+    }
 }

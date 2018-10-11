@@ -28,4 +28,15 @@ class Article extends Model
     protected $hidden = [
         'cat_id'
     ];
+
+
+    /**
+     * 关联分类 一对一 获取此文章下拥有的分类名称
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function category(){
+        return $this->hasOne(Category::class, 'id', 'cat_id')->select('id', 'name');
+    }
+
 }

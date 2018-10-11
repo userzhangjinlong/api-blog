@@ -19,6 +19,7 @@ Route::post('/categoryDelAll', 'CategoriesController@destroyAll');
 Route::post('/articleList', 'ArticlesController@index');
 Route::post('/articleAdd', 'ArticlesController@create');
 Route::post('/articleDel', 'ArticlesController@destroy');
+Route::post('/articleDelAll', 'ArticlesController@destroyAll');
 
 Route::middleware('auth:admin')->get('/user', function (\Illuminate\Http\Request $request) {
     echo $request->user();
