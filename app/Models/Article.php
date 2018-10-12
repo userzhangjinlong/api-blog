@@ -26,7 +26,6 @@ class Article extends Model
      * @var array
      */
     protected $hidden = [
-        'cat_id'
     ];
 
 

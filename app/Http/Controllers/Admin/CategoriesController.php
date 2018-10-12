@@ -84,6 +84,12 @@ class CategoriesController extends Controller
         return response()->json($data);
     }
 
+    /**
+     * 编辑分类
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request){
         if(Category::where('id','=', $request->id)->update(['name' => $request->name])){
             $data['code'] = 200;

@@ -83,19 +83,37 @@ class ArticlesController extends Controller
     }
 
 
-    public function show(Article $article){
-        /*var_dump($request);die;
+    /**
+     * 文章详情
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(Request $request){
         $articles = Article::find($request->id);
-        if($articles){
+        return response()->json($articles);
+    }
+
+    /**
+     * 编辑文章
+     *
+     * @param Article $article
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Article $article, Request $request){
+        $result = $article->where(['id' => $request->id])->update($request->all());
+
+        if($result){
             $data['code'] = 200;
             $data['msg']  = 'ok';
             $data['info'] = [];
         }else{
-            $data['code'] = '400';
+            $data['code'] = 400;
             $data['msg']  = 'fail';
             $data['info'] = [];
-        }*/
-        return response()->json('article');
+        }
+        return response()->json($data);
     }
 
 
