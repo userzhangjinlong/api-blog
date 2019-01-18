@@ -36,7 +36,6 @@ class IndexController extends Controller
      */
     public function addView(Request $request){
         $nowDay = Carbon::today()->timestamp;
-
         $ips =  Redis::smembers($nowDay.'ips');
         if(!empty($ips)){
             if(!Redis::sisMember($nowDay.'ips', $request->getClientIp())){
