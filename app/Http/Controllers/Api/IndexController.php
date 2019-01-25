@@ -22,7 +22,14 @@ class IndexController extends Controller
      */
     public function articles(Article $article){
 
-        $articles = $article->paginate(8);
+        $articles = $article->paginate(8,['id', 'created_at', 'description', 'title', 'brow_volume', 'img_url']);
+
+        foreach($articles as $k => $item){
+            $time = date('Y-m-d', strtotime($item->created_at));
+            $articles[$k]['time'] = $time;
+
+        }
+
         $data['code'] = 200;
         $data['msg']  = 'ok';
         $data['list'] = $articles;
@@ -63,6 +70,13 @@ class IndexController extends Controller
                 'view_num'      =>      1
             ]);
         }
+
+    }
+
+    public function viewPeople(Request $request){
+        $num = Webvolume::sum('view_num');
+
+        return response()->json(['code' => 200, 'msg' => 'ok', 'num' => intval($num)]);
 
     }
 
