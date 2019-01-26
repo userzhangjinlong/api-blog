@@ -20,6 +20,10 @@ Route::get('/viewPeople', 'IndexController@viewPeople');
 Route::post('/readNum', 'ArticleController@readNum');
 Route::get('/details/{postId}', 'ArticleController@details');
 
+
+Route::get('/learn', 'LearnluaController@learn');
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
