@@ -16,9 +16,11 @@ Route::get('/', 'IndexController@articles');
 Route::get('/articles/', 'IndexController@articles');
 Route::post('/addWebvolume', 'IndexController@addView');
 Route::get('/tags', 'TagsController@index');
+Route::get('/tagsArticles/{cateId}', 'TagsController@articles');
 Route::get('/viewPeople', 'IndexController@viewPeople');
 Route::post('/readNum', 'ArticleController@readNum');
 Route::get('/details/{postId}', 'ArticleController@details');
+
 
 
 Route::get('/learn', 'LearnluaController@learn');
