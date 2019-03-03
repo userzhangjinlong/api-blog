@@ -60,4 +60,13 @@ EOF;
         $ret = Redis::eval($lua, ["你好|谢谢", "", "hello", "cache_key"], 2);
         dd($ret);
     }
+
+    public function learnget(Request $request){
+        dd($request->json());
+    }
+
+    public function learnpost(Request $request){
+        dd($request->json());
+    }
+
 }

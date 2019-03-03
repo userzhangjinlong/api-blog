@@ -24,6 +24,8 @@ Route::get('/details/{postId}', 'ArticleController@details');
 
 
 Route::get('/learn', 'LearnluaController@learn');
+Route::get('/learnget', 'LearnluaController@learnget');
+Route::get('/learnpost', 'LearnluaController@learnpost');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
