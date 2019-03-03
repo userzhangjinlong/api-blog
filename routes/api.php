@@ -24,7 +24,7 @@ Route::get('/details/{postId}', 'ArticleController@details');
 
 
 Route::get('/learn', 'LearnluaController@learn');
-Route::get('/learnget', 'LearnluaController@learnget');
+Route::get('/learnget/{parm1?}/{parm2?}/{parm3?}', 'LearnluaController@learnget');
 Route::get('/learnpost', 'LearnluaController@learnpost');
 
 

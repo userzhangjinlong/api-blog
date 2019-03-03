@@ -61,8 +61,14 @@ EOF;
         dd($ret);
     }
 
-    public function learnget(Request $request){
-        dd($request->json());
+    /**
+     * @param Request $request
+     * @param $arg1
+     * @param $arg2
+     * @param $arg3
+     */
+    public function learnget(Request $request, $arg1, $arg2, $arg3){
+        dd($arg1.$arg2.$arg3);
     }
 
     public function learnpost(Request $request){
